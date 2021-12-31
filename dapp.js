@@ -48,7 +48,7 @@ connect.onclick = async () => {
             console.log("metamask is available")
             await window.ethereum.request({
                 method: 'wallet_switchEthereumChain',
-                params: [{ chainId: '9000' }],
+                params: [{ chainId: '0x2328' }],
             });
             await ethereum.request({ method: 'eth_requestAccounts'})
                     console.log("connected to evmos testnet")
@@ -93,12 +93,12 @@ submit.onclick = async () => {
 }
 
 ethereum.on('chainChanged', async (chainId) => {
-    if (chainId!='9000') {
+    if (chainId!='0x2328') {
         console.log("chainId:"+chainId + "is wrong")
         alert("We only support ropsten testnet,pls change your network")
         await window.ethereum.request({
             method: 'wallet_switchEthereumChain',
-            params: [{ chainId: '9000' }],
+            params: [{ chainId: '0x2328'}],
         });
     }
 
